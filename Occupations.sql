@@ -1,0 +1,33 @@
+-- METHOD1
+
+--SELECT
+--    MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+--    MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+--    MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+--    MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+--FROM (
+--    SELECT 
+--        Name,
+--        Occupation,
+--        ROW_NUMBER() OVER(PARTITION BY Occupation ORDER BY Name) AS rn
+--    FROM OCCUPATIONS
+--) AS T1
+--GROUP BY rn
+--ORDER BY rn;
+
+--METHOD2
+
+--WITH Numbered AS (
+--SELECT 
+--    Name,
+--    Occupation,
+--    ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rn
+--FROM OCCUPATIONS
+--)
+--SELECT Doctor, Professor, Singer, Actor
+--FROM Numbered
+--PIVOT (
+--  MAX(Name) 
+--  FOR Occupation IN ([Doctor], [Professor], [Singer], [Actor])
+--) AS p
+--ORDER BY rn;
