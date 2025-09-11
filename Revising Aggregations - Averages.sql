@@ -1,0 +1,3 @@
+SELECT AVG(POPULATION) AS AvgPopulation
+FROM CITY
+WHERE DISTRICT = 'California'; 
