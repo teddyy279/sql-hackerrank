@@ -1,0 +1,4 @@
+SELECT CAST(123.45 AS INT);           -- Kết quả: 123
+SELECT CAST(123 AS VARCHAR(10));      -- Kết quả: '123'
+SELECT CAST('2025-09-11' AS DATE);    -- Kết quả: 2025-09-11
+SELECT CAST(123.456 AS DECIMAL(10,2));-- Kết quả: 123.46
