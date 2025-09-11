@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS CityCount
+FROM CITY
+WHERE Population > 100000;
